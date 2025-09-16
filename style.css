@@ -106,7 +106,7 @@ th {
   color: white;
 }
 
-/* Футер */
+
 footer {
   background: black;
   color: white;
@@ -115,12 +115,12 @@ footer {
   margin-top: 20px;
 }
 
-/* ссылки в футере — без подсветки */
+
 footer .footer-link {
   color: white;
   text-decoration: none;
 }
 
 footer .footer-link:hover {
-  color: white; /* оставляем белыми */
+  color: white; 
 }
