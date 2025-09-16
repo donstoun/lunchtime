@@ -11,10 +11,16 @@ body {
 }
 
 header {
-  background: #f44336;
+  background: #1E3A8A; /* насыщенный синий */
   color: white;
   padding: 20px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between; /* логотип слева, меню справа */
+  align-items: center;
+}
+
+header h1 {
+  font-size: 24px;
 }
 
 nav a {
@@ -25,7 +31,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffd700;
+  color: #60A5FA; /* светло-голубой при наведении */
 }
 
 main {
