@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обратная связь — Lunchtime</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Обратная связь</h1>
+  </header>
+
+  <main>
+    <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data" class="form">
+      <label>ФИО:<br>
+        <input type="text" name="fio" required>
+      </label><br><br>
+
+      <label>Email:<br>
+        <input type="email" name="email" required>
+      </label><br><br>
+
+      <p>Откуда узнали о нас:</p>
+      <label><input type="radio" name="source" value="internet"> Интернет</label><br>
+      <label><input type="radio" name="source" value="friends"> Друзья</label><br>
+      <label><input type="radio" name="source" value="ads"> Реклама</label><br><br>
+
+      <label>Тип обращения:<br>
+        <select name="type">
+          <option value="complaint">Жалоба</option>
+          <option value="suggestion">Предложение</option>
+        </select>
+      </label><br><br>
+
+      <label>Текст сообщения:<br>
+        <textarea name="message" rows="5" cols="40" required></textarea>
+      </label><br><br>
+
+      <label>Вложения:<br>
+        <input type="file" name="file">
+      </label><br><br>
+
+      <label>
+        <input type="checkbox" name="consent" required> Даю согласие на обработку персональных данных
+      </label><br><br>
+
+      <button type="submit">Отправить</button>
+    </form>
+  </main>
+</body>
+</html>
