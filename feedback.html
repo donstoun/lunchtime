@@ -1,52 +1,965 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Обратная связь — Lunchtime</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь — Lunchtime</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .feedback-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            width: 500px;
+            max-width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 40px;
+        }
+
+        h1 {
+            margin: 0 0 30px;
+            color: #1F2937;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4B5563;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 16px;
+            color: #1F2937;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            font-family: inherit;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .radio-item label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 16px;
+            color: #1F2937;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .file-group {
+            position: relative;
+            padding: 2em 0;
+            text-align: center;
+        }
+
+        .file-input {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-group::before {
+            content: '📎 Прикрепить файлы';
+            color: #667eea;
+            font-size: 14px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+        }
+
+        .checkbox-container label {
+            color: #4B5563;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Обратная связь</h1>
-  </header>
+    <div class="feedback-container">
+        <h1>Напишите нам</h1>
+        <form action="https://httpbin.org/post" method="POST">
+            <div class="input-group">
+                <label for="fullname">Как вас зовут?</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
 
-  <main>
-    <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data" class="form">
-      <label>ФИО:<br>
-        <input type="text" name="fio" required>
-      </label><br><br>
+            <div class="input-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-      <label>Email:<br>
-        <input type="email" name="email" required>
-      </label><br><br>
+            <div class="input-group">
+                <label>Как вы о нас узнали?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="source1" name="source" value="friends" required>
+                        <label for="source1">От друзей или знакомых</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="source2" name="source" value="internet">
+                        <label for="source2">Нашёл в интернете</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="source3" name="source" value="social">
+                        <label for="source3">Из социальных сетей</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="source4" name="source" value="advertising">
+                        <label for="source4">Увидел рекламу</label>
+                    </div>
+                </div>
+            </div>
 
-      <p>Откуда узнали о нас:</p>
-      <label><input type="radio" name="source" value="internet"> Интернет</label><br>
-      <label><input type="radio" name="source" value="friends"> Друзья</label><br>
-      <label><input type="radio" name="source" value="ads"> Реклама</label><br><br>
+            <div class="input-group">
+                <label for="type">Что вы хотите сделать?</label>
+                <select id="type" name="type" required>
+                    <option value="">Выберите причину обращения</option>
+                    <option value="feedback">Оставить отзыв</option>
+                    <option value="complaint">Сообщить о проблеме</option>
+                    <option value="suggestion">Предложить идею</option>
+                </select>
+            </div>
 
-      <label>Тип обращения:<br>
-        <select name="type">
-          <option value="complaint">Жалоба</option>
-          <option value="suggestion">Предложение</option>
-        </select>
-      </label><br><br>
+            <div class="input-group">
+                <label for="message">Ваше сообщение</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
 
-      <label>Текст сообщения:<br>
-        <textarea name="message" rows="5" cols="40" required></textarea>
-      </label><br><br>
+            <div class="input-group file-group">
+                <input type="file" id="attachment" name="attachment" class="file-input" multiple>
+            </div>
 
-      <label>Вложения:<br>
-        <input type="file" name="file">
-      </label><br><br>
+            <div class="checkbox-container">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Согласен на обработку данных</label>
+            </div>
 
-      <label>
-        <input type="checkbox" name="consent" required> Даю согласие на обработку персональных данных
-      </label><br><br>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Обратная связь — Lunchtime</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-      <button type="submit">Отправить</button>
+.feedback-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+}
+
+.feedback-header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.feedback-header h2 {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.feedback-form {
+    padding: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4B5563;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #1F2937;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.input-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.rating-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rating-option {
+    flex: 1;
+}
+
+.rating-option input[type="radio"] {
+    display: none;
+}
+
+.rating-option label {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rating-option input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+.file-upload label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload label:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #667eea;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.feedback-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+}
+
+.feedback-header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.feedback-header h2 {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.feedback-form {
+    padding: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4B5563;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #1F2937;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.rating-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rating-option {
+    flex: 1;
+}
+
+.rating-option input[type="radio"] {
+    display: none;
+}
+
+.rating-option label {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rating-option input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+.file-upload label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload label:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #667eea;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+}
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.feedback-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+}
+
+.feedback-header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.feedback-header h2 {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.feedback-form {
+    padding: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4B5563;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #1F2937;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.rating-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rating-option {
+    flex: 1;
+}
+
+.rating-option input[type="radio"] {
+    display: none;
+}
+
+.rating-option label {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rating-option input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+.file-upload label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload label:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #667eea;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+}
+
+.feedback-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    width: 600px;
+    max-width: 100%;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+}
+
+.feedback-header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.feedback-header h2 {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.feedback-form {
+    padding: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4B5563;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.rating-group {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.rating-option {
+    flex: 1;
+    text-align: center;
+}
+
+.rating-option input[type="radio"] {
+    display: none;
+}
+
+.rating-option label {
+    display: block;
+    padding: 10px;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.rating-option input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.file-input {
+    margin-bottom: 20px;
+}
+
+.file-input label {
+    display: block;
+    padding: 12px;
+    background: #f8fafc;
+    border: 2px dashed #E5E7EB;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-input label:hover {
+    border-color: #667eea;
+    background: #f1f5f9;
+}
+
+.file-input input[type="file"] {
+    display: none;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: #667eea;
+}
+
+.checkbox-container label {
+    font-size: 14px;
+    color: #4B5563;
+    line-height: 1.5;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -10px rgba(102, 126, 234, 0.5);
+}
+
+@media (max-width: 640px) {
+    .feedback-container {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .feedback-header {
+        padding: 20px;
+    }
+    
+    .feedback-form {
+        padding: 20px;
+    }
+    
+    .rating-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .rating-option label {
+        padding: 8px;
+</head>
+<body>
+<div class="feedback-container">
+    <div class="feedback-header">
+        <h2>Обратная связь</h2>
+    </div>
+    
+    <form class="feedback-form" action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?">
+        </div>
+        
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Для обратной связи">
+        </div>
+        
+        <div class="input-group">
+            <label for="subject">Тема обращения</label>
+            <select id="subject" name="subject" required>
+                <option value="">Выберите тему</option>
+                <option value="quality">Качество обслуживания</option>
+                <option value="menu">Меню</option>
+                <option value="delivery">Доставка</option>
+                <option value="app">Работа приложения</option>
+                <option value="other">Другое</option>
+            </select>
+        </div>
+        
+        <div class="input-group">
+            <label>Оценка</label>
+            <div class="rating-group">
+                <div class="rating-option">
+                    <input type="radio" id="rating1" name="rating" value="1" required>
+                    <label for="rating1">1</label>
+                </div>
+                <div class="rating-option">
+                    <input type="radio" id="rating2" name="rating" value="2">
+                    <label for="rating2">2</label>
+                </div>
+                <div class="rating-option">
+                    <input type="radio" id="rating3" name="rating" value="3">
+                    <label for="rating3">3</label>
+                </div>
+                <div class="rating-option">
+                    <input type="radio" id="rating4" name="rating" value="4">
+                    <label for="rating4">4</label>
+                </div>
+                <div class="rating-option">
+                    <input type="radio" id="rating5" name="rating" value="5">
+                    <label for="rating5">5</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label for="message">Ваше сообщение</label>
+            <textarea id="message" name="message" required placeholder="Опишите ваше впечатление или проблему"></textarea>
+        </div>
+        
+        <div class="file-input">
+            <label for="file">
+                Прикрепить файл<br>
+                <small style="color: #6B7280;">Перетащите файл сюда или нажмите для выбора</small>
+            </label>
+            <input type="file" id="file" name="file">
+        </div>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">Я даю согласие на обработку моих персональных данных в соответствии с условиями предоставления услуг</label>
+        </div>
+        
+        <button type="submit">Отправить отзыв</button>
     </form>
-  </main>
+</div>
 </body>
 </html>
