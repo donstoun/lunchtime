@@ -15,17 +15,17 @@
 ---
 
 ## Структура проекта
-lunchtime/
-│── index.html # Главная страница
-│── about.html # О компании
-│── menu.html # Меню с заказом
-│── feedback.html # Обратная связь
-│── contacts.html # Контакты
-│── login.html # Страница входа
-│── style.css # Общие стили
-│── menu.css # Стили меню
-│── js/
-│ ├── dishes.js # Список блюд
-│ ├── renderMenu.js # Рендеринг меню
-│ └── menu.js # Логика выбора и заказа
-│── images/ # Изображения
+lunchtime/  
+│── index.html # Главная страница  
+│── about.html # О компании  
+│── menu.html # Меню с заказом  
+│── feedback.html # Обратная связь  
+│── contacts.html # Контакты  
+│── login.html # Страница входа  
+│── style.css # Общие стили  
+│── menu.css # Стили меню  
+│── js/  
+│ ├── dishes.js # Список блюд  
+│ ├── renderMenu.js # Рендеринг меню  
+│ └── menu.js # Логика выбора и заказа  
+│── images/ # Изображения  
