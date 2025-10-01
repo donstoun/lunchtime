@@ -441,50 +441,127 @@ button:hover {
     color: #1e3a8a;
 }
 
-/* Контакты */
-.contacts {
-    background: #e0e7ff;
+.contacts-header {
     text-align: center;
-    padding: 50px 20px;
-    margin-top: 40px;
+    padding: 40px 20px 20px 20px;
+    background: #fff;
 }
 
-.contacts h2 {
-    font-size: 28px;
+.contacts-header h1 {
+    font-size: 2.5em;
+    margin: 0;
     color: #1e3a8a;
-    margin-bottom: 20px;
 }
 
-.contacts p {
-    font-size: 18px;
-    margin: 10px 0;
+.contacts-header .tagline {
+    font-size: 1.2em;
+    margin-top: 8px;
+    
 }
 
-.contacts a {
-    color: #1e3a8a;
-    text-decoration: none;
-    font-weight: 500;
+/* Основной контент */
+.contacts-page.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
 }
 
-.contacts a:hover {
-    text-decoration: underline;
+/* Контактная информация */
+.contact-info {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
-/* Футер */
-footer {
-    background: #1e3a8a;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+.contact-info h2 {
     margin-top: 0;
-    font-size: 14px;
+    margin-bottom: 15px;
+    color: #1e3a8a;
 }
-footer a {
-    color: #60a5fa;
+
+.contact-info p {
+    font-size: 1em;
+    margin: 8px 0;
+}
+
+.contact-info a {
+    color: #2563eb;
     text-decoration: none;
 }
-footer a:hover {
+
+.contact-info a:hover {
     text-decoration: underline;
+}
+
+/* Карта */
+.contact-map {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.contact-map h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Форма обратной связи */
+.contact-form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.contact-form h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #1e3a8a;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* Кнопка отправки */
+.contact-form .submit-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form .submit-btn:hover {
+    background-color: #1d4ed8;
 }
 
 
