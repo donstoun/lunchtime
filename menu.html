@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - LunchTime</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Lunch<span class="accent">Time</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О компании</a></li>
+                <li><a href="menu.html" class="active">Меню</a></li>
+                <li><a href="feedback.html">Обратная связь</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="login.html">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="menu-title">Наше Меню</h1>
+
+        <!-- Супы -->
+        <section id="section-soup" class="menu-section">
+            <h2>Супы</h2>
+            <div class="filters">
+                <button class="filter-btn" data-kind="fish">Рыбный</button>
+                <button class="filter-btn" data-kind="meat">Мясной</button>
+                <button class="filter-btn" data-kind="veg">Вегетарианский</button>
+            </div>
+            <div class="dishes" data-category="soup"></div>
+        </section>
+
+        <!-- Основные блюда -->
+        <section id="section-main" class="menu-section">
+            <h2>Главные блюда</h2>
+            <div class="filters">
+                <button class="filter-btn" data-kind="fish">Рыбное</button>
+                <button class="filter-btn" data-kind="meat">Мясное</button>
+                <button class="filter-btn" data-kind="veg">Вегетарианское</button>
+            </div>
+            <div class="dishes" data-category="main"></div>
+        </section>
+
+        <!-- Салаты и стартеры -->
+        <section id="section-salad" class="menu-section">
+            <h2>Салаты и стартеры</h2>
+            <div class="filters">
+                <button class="filter-btn" data-kind="fish">Рыбный</button>
+                <button class="filter-btn" data-kind="meat">Мясной</button>
+                <button class="filter-btn" data-kind="veg">Вегетарианский</button>
+            </div>
+            <div class="dishes" data-category="salad"></div>
+        </section>
+
+        <!-- Напитки -->
+        <section id="section-drink" class="menu-section">
+            <h2>Напитки</h2>
+            <div class="filters">
+                <button class="filter-btn" data-kind="cold">Холодный</button>
+                <button class="filter-btn" data-kind="hot">Горячий</button>
+            </div>
+            <div class="dishes" data-category="drink"></div>
+        </section>
+
+        <!-- Блок "Ваш заказ" -->
+        <section class="order-section" id="orderSection">
+            <h2>Ваш заказ</h2>
+
+            <p id="nothingSelected" class="order-empty">Ничего не выбрано. Выберите блюда из меню выше.</p>
+
+            <div id="orderCategories" class="order-categories hidden">
+                <div class="order-cat">
+                    <h4>Суп</h4>
+                    <div class="order-content" data-order-content="soup">
+                        <span class="order-empty">Блюдо не выбрано</span>
+                    </div>
+                </div>
+                <div class="order-cat">
+                    <h4>Главное блюдо</h4>
+                    <div class="order-content" data-order-content="main">
+                        <span class="order-empty">Блюдо не выбрано</span>
+                    </div>
+                </div>
+                <div class="order-cat">
+                    <h4>Салат или стартер</h4>
+                    <div class="order-content" data-order-content="salad">
+                        <span class="order-empty">Блюдо не выбрано</span>
+                    </div>
+                </div>
+                <div class="order-cat">
+                    <h4>Напиток</h4>
+                    <div class="order-content" data-order-content="drink">
+                        <span class="order-empty">Напиток не выбран</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="orderSummary" class="order-summary hidden">
+                <div>Итого к оплате:</div>
+                <div id="orderTotal">0 ₽</div>
+            </div>
+
+            <form id="orderForm" method="post" action="/submit-order">
+                <div class="form-group">
+                    <label for="customerName">Ваше имя:</label>
+                    <input type="text" id="customerName" name="customerName" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Телефон:</label>
+                    <input type="tel" id="customerPhone" name="customerPhone" placeholder="+7 (999) 123-45-67" required>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryAddress">Адрес доставки:</label>
+                    <input type="text" id="deliveryAddress" name="deliveryAddress" placeholder="ул. Примерная, д. 1, кв. 1" required>
+                </div>
+                <div class="form-group">
+                    <label>Время доставки:</label>
+                    <div class="delivery-time-options">
+                        <label class="radio-option">
+                            <input type="radio" name="deliveryTime" value="asap" checked>
+                            <span>Как можно скорее</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="deliveryTime" value="specific">
+                            <span>К указанному времени</span>
+                        </label>
+                    </div>
+                    <input type="time" id="specificTime" name="specificTime" class="hidden" placeholder="Укажите время">
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="reset-btn" id="resetOrder">Очистить</button>
+                    <button type="submit" class="submit-btn">Оформить заказ</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LunchTime. Все права защищены.</p>
+    </footer>
+
+    <script src="js/dishes.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
