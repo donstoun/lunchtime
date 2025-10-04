@@ -878,9 +878,51 @@ fieldset legend {
 
 
 
+.contacts {
+    background: #e0e7ff;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 40px;
+}
+
+.contacts h2 {
+    font-size: 28px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+.contacts p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.contacts a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contacts a:hover {
+    text-decoration: underline;
+}
 
 
 
 
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
 
+footer .footer-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
 
+footer .footer-link:hover {
+  color: #60A5FA;
+}
