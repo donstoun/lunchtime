@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — LunchTime</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="login-page">
+        <div class="login-card">
+            <form class="login-form" action="https://httpbin.org/post" method="POST">
+                <h2>Вход в LunchTime</h2>
+
+                <!-- Логин -->
+                <div class="form-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" name="username" placeholder="Введите логин" required>
+                </div>
+
+                <!-- Пароль -->
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+                </div>
+
+                <!-- Запомнить меня -->
+                <label class="checkbox">
+                    <input type="checkbox" name="remember"> Запомнить меня
+                </label>
+
+                <!-- Кнопка -->
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

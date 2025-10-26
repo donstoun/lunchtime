@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать ланч — LunchTime</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Lunch<span class="accent">Time</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О компании</a></li>
+                <li><a href="menu.html" class="active">Собрать ланч</a></li>
+                <li><a href="orders.html">Заказы</a></li>
+                <li><a href="feedback.html">Обратная связь</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="login.html">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="menu-title">Собрать ланч</h1>
+        <p class="api-status" id="apiStatusMessage">Загрузка меню...</p>
+
+        <!-- Кнопка автовыбора комбо -->
+        <section class="combo-selector">
+            <button id="autoSelectComboBtn" class="combo-btn">
+                <i class="fas fa-magic"></i> Собрать Комбо в 1 клик!
+            </button>
+            <p class="combo-hint">Автоматически выберет Суп, Горячее, Салат и Напиток. Вы можете заказать любое количество блюд!</p>
+        </section>
+
+        <div class="menu-content">
+            <div class="dishes-list-wrapper">
+                
+                <!-- Супы -->
+                <section id="section-soup" class="menu-section">
+                    <h2>Супы</h2>
+                    <div class="filters">
+                        <button class="filter-btn" data-kind="fish">
+                            <i class="fas fa-fish"></i> Рыбный
+                        </button>
+                        <button class="filter-btn" data-kind="meat">
+                            <i class="fas fa-drumstick-bite"></i> Мясной
+                        </button>
+                        <button class="filter-btn" data-kind="veg">
+                            <i class="fas fa-leaf"></i> Вегетарианский
+                        </button>
+                    </div>
+                    <div class="dishes" data-category="soup"></div>
+                </section>
+
+                <!-- Главные блюда -->
+                <section id="section-main" class="menu-section">
+                    <h2>Главные блюда</h2>
+                    <div class="filters">
+                        <button class="filter-btn" data-kind="fish">
+                            <i class="fas fa-fish"></i> Рыбное
+                        </button>
+                        <button class="filter-btn" data-kind="meat">
+                            <i class="fas fa-drumstick-bite"></i> Мясное
+                        </button>
+                        <button class="filter-btn" data-kind="veg">
+                            <i class="fas fa-leaf"></i> Вегетарианское
+                        </button>
+                    </div>
+                    <div class="dishes" data-category="main"></div>
+                </section>
+
+                <!-- Салаты -->
+                <section id="section-salad" class="menu-section">
+                    <h2>Салаты</h2>
+                    <div class="filters">
+                        <button class="filter-btn" data-kind="fish">
+                            <i class="fas fa-fish"></i> С рыбой
+                        </button>
+                        <button class="filter-btn" data-kind="meat">
+                            <i class="fas fa-drumstick-bite"></i> С мясом
+                        </button>
+                        <button class="filter-btn" data-kind="veg">
+                            <i class="fas fa-leaf"></i> Вегетарианский
+                        </button>
+                    </div>
+                    <div class="dishes" data-category="salad"></div>
+                </section>
+
+                <!-- Напитки -->
+                <section id="section-drink" class="menu-section">
+                    <h2>Напитки</h2>
+                    <div class="filters">
+                        <button class="filter-btn" data-kind="cold">
+                            <i class="fas fa-snowflake"></i> Холодный
+                        </button>
+                        <button class="filter-btn" data-kind="hot">
+                            <i class="fas fa-mug-hot"></i> Горячий
+                        </button>
+                    </div>
+                    <div class="dishes" data-category="drink"></div>
+                </section>
+
+                <!-- Десерты -->
+                <section id="section-dessert" class="menu-section">
+                    <h2>Десерты</h2>
+                    <div class="dishes" data-category="dessert"></div>
+                </section>
+            </div>
+
+            <!-- Панель заказа -->
+            <div class="order-summary-panel hidden" id="orderSummaryPanel">
+                <h2>Ваш заказ</h2>
+                <div id="orderSummaryItems">
+                    <p class="empty-message">Пока ничего не выбрано.</p>
+                </div>
+                <div class="order-total-block">
+                    <p>Итого к оплате:</p>
+                    <span id="orderTotal">0 ₽</span>
+                </div>
+                <a href="order.html" class="checkout-link disabled" id="goToCheckoutLink">
+                    <i class="fas fa-shopping-cart"></i> Перейти к оформлению
+                </a>
+                <button type="button" class="reset-btn" id="resetOrderBtn">
+                    <h3><i class="fas fa-trash"></i> Очистить заказ</h3>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LunchTime. Все права защищены.</p>
+    </footer>
+
+    <div id="notificationModal" class="notification-modal"></div>
+
+    <script src="js/menu.js"></script> 
+</body>
+</html>

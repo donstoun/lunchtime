@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LunchTime — Доставка бизнес-ланчей</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-utensils me-2"></i>Lunch<span class="text-warning">Time</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Преимущества</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cta">Заказать</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Собрать ланч</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="orders.html">Мои заказы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">
+                        <i class="fas fa-star me-2"></i>Доставка за 30 минут
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4">
+                        Вкусные <span class="text-gradient">бизнес-ланчи</span> с доставкой в офис
+                    </h1>
+                    <p class="lead mb-4 text-muted">
+                        Свежие блюда от шеф-повара каждый день. Собери свой идеальный обед всего за 3 клика!
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="menu.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                            <i class="fas fa-utensils me-2"></i>Собрать ланч
+                        </a>
+                        <a href="#features" class="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill">
+                            Узнать больше
+                        </a>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="row mt-5 g-4">
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <h3 class="fw-bold text-primary mb-0">500+</h3>
+                                <p class="text-muted small mb-0">Довольных клиентов</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <h3 class="fw-bold text-primary mb-0">50+</h3>
+                                <p class="text-muted small mb-0">Блюд в меню</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <h3 class="fw-bold text-primary mb-0">4.9</h3>
+                                <p class="text-muted small mb-0">Средний рейтинг</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" 
+                             alt="Вкусная еда" 
+                             class="img-fluid rounded-4 shadow-lg">
+                        <!-- Floating Cards -->
+                        <div class="floating-card card-1">
+                            <i class="fas fa-clock text-warning"></i>
+                            <div>
+                                <small class="d-block text-muted">Среднее время</small>
+                                <strong>25 мин</strong>
+                            </div>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <div>
+                                <small class="d-block text-muted">Рейтинг</small>
+                                <strong>4.9/5.0</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">Наши преимущества</span>
+                    <h2 class="display-4 fw-bold mb-4">Почему выбирают нас?</h2>
+                    <p class="lead text-muted">
+                        Мы заботимся о качестве, скорости и удобстве наших клиентов
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-shipping-fast text-primary"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Быстрая доставка</h5>
+                            <p class="text-muted mb-0">
+                                Доставим ваш заказ за 30 минут в пределах города
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-success bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-leaf text-success"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Свежие продукты</h5>
+                            <p class="text-muted mb-0">
+                                Только натуральные ингредиенты от проверенных поставщиков
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-warning bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Шеф-повара</h5>
+                            <p class="text-muted mb-0">
+                                Блюда готовят опытные повара с многолетним стажем
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-danger bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-percent text-danger"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Выгодные цены</h5>
+                            <p class="text-muted mb-0">
+                                Комбо-ланчи со скидкой до 50₽ каждый день
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-info bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-mobile-alt text-info"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Удобный заказ</h5>
+                            <p class="text-muted mb-0">
+                                Интуитивный интерфейс для быстрого оформления заказа
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-secondary bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-utensils text-secondary"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Большой выбор</h5>
+                            <p class="text-muted mb-0">
+                                Более 50 блюд: супы, салаты, горячее, десерты
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-calendar-check text-primary"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Работаем 7 дней</h5>
+                            <p class="text-muted mb-0">
+                                Принимаем заказы каждый день с 7:00 до 23:00
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-success bg-opacity-10 rounded-circle mx-auto mb-4">
+                                <i class="fas fa-shield-alt text-success"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3">Гарантия качества</h5>
+                            <p class="text-muted mb-0">
+                                Вернем деньги, если вам не понравится блюдо
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" 
+                         alt="Готовим с любовью" 
+                         class="img-fluid rounded-4 shadow-lg">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">
+                        <i class="fas fa-fire me-2"></i>Специальное предложение
+                    </span>
+                    <h2 class="display-4 fw-bold mb-4">
+                        Голодны? Соберите свой <span class="text-primary">идеальный обед!</span>
+                    </h2>
+                    <p class="lead text-muted mb-4">
+                        Выберите суп, горячее блюдо и салат — получите скидку 50₽ на комбо-ланч. 
+                        Доставка за 30 минут или бесплатно!
+                    </p>
+                    
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Более 50 блюд</strong> на выбор каждый день
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Скидка 50₽</strong> на комбо из 3 блюд
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <strong>Бесплатная доставка</strong> при заказе от 500₽
+                        </li>
+                    </ul>
+                    
+                    <a href="menu.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                        <i class="fas fa-utensils me-2"></i>Собрать ланч сейчас
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2">Свяжитесь с нами</span>
+                    <h2 class="display-4 fw-bold mb-4">Остались вопросы?</h2>
+                    <p class="lead text-muted">
+                        Напишите нам, и мы ответим в течение 15 минут
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-md-5">
+                            <h4 class="fw-bold mb-4">Форма обратной связи</h4>
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Ваше имя *</label>
+                                        <input type="text" class="form-control form-control-lg" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" class="form-control form-control-lg" id="email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="phone" class="form-label">Телефон *</label>
+                                        <input type="tel" class="form-control form-control-lg" id="phone" placeholder="+7 (999) 123-45-67" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Сообщение *</label>
+                                        <textarea class="form-control form-control-lg" id="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100 py-3">
+                                            <i class="fas fa-paper-plane me-2"></i>Отправить сообщение
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="contact-info">
+                        <h4 class="fw-bold mb-4">Контактная информация</h4>
+                        
+                        <div class="contact-item mb-4">
+                            <div class="contact-icon bg-primary bg-opacity-10 rounded-circle">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Адрес</h6>
+                                <p class="text-muted mb-0">г. Москва, ул. Тверская, д. 12</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item mb-4">
+                            <div class="contact-icon bg-success bg-opacity-10 rounded-circle">
+                                <i class="fas fa-phone-alt text-success"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Телефон</h6>
+                                <p class="text-muted mb-0">+7 (495) 123-45-67</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item mb-4">
+                            <div class="contact-icon bg-warning bg-opacity-10 rounded-circle">
+                                <i class="fas fa-envelope text-warning"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Email</h6>
+                                <p class="text-muted mb-0">info@lunchtime.ru</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item mb-4">
+                            <div class="contact-icon bg-info bg-opacity-10 rounded-circle">
+                                <i class="fas fa-clock text-info"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Режим работы</h6>
+                                <p class="text-muted mb-0">Ежедневно: 7:00 - 23:00</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links mt-4">
+                            <h6 class="fw-bold mb-3">Мы в соцсетях:</h6>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-vk"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2025 LunchTime. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="menu.html" class="text-white text-decoration-none me-3">Меню</a>
+                    <a href="orders.html" class="text-white text-decoration-none me-3">Заказы</a>
+                    <a href="#contact" class="text-white text-decoration-none">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

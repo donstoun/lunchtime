@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа — LunchTime</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Lunch<span class="accent">Time</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О компании</a></li>
+                <li><a href="menu.html">Собрать ланч</a></li>
+                <li><a href="orders.html">Мои Заказы</a></li>
+                <li><a href="feedback.html">Обратная связь</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="login.html">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="menu-title">Оформление заказа</h1>
+
+        <section class="order-form-container">
+            <!-- Форма с данными клиента -->
+            <form id="checkoutForm" class="order-form-grid">
+                <div class="user-details-group">
+                    <h2>Данные для доставки</h2>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Полное имя *</label>
+                        <input type="text" id="fullName" name="full_name" placeholder="Иван Иванов" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required pattern="[\+]?[0-9\s\(\)\-]+">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deliveryAddress">Адрес доставки *</label>
+                        <input type="text" id="deliveryAddress" name="delivery_address" placeholder="ул. Примерная, д. 1, кв. 10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Время доставки *</label>
+                        <div class="delivery-time-options">
+                            <label class="radio-option">
+                                <input type="radio" name="delivery_type" value="asap" checked>
+                                <span>Как можно скорее</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="delivery_type" value="specific">
+                                <span>К указанному времени</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden" id="specificTimeGroup">
+                        <label for="deliveryTime">Укажите время доставки</label>
+                        <input type="time" id="deliveryTime" name="delivery_time" min="07:00" max="23:00">
+                        <small>Доставка доступна с 7:00 до 23:00</small>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Сводка заказа -->
+            <div class="order-summary-form-view">
+                <h3>Ваш заказ</h3>
+                <div id="orderItemsList" class="order-items-list">
+                    <p>Загрузка заказа...</p>
+                </div>
+                
+                <div class="order-total-block">
+                    <p>Итого к оплате:</p>
+                    <span id="orderTotal">0 ₽</span>
+                </div>
+            </div>
+
+            <!-- Кнопки -->
+            <div class="form-buttons">
+                <a href="menu.html" class="reset-btn" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Вернуться в меню</a>
+                <button type="submit" id="submitOrderBtn" class="submit-btn" form="checkoutForm" disabled>Оформить заказ</button>
+            </div>
+        </section>
+
+        <p class="empty-order-message hidden" style="margin-top: 30px;">
+            Ваш заказ пуст. <a href="menu.html">Вернуться в меню</a>
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LunchTime. Все права защищены.</p>
+    </footer>
+
+    <div id="notificationModal" class="notification-modal"></div>
+
+    <!-- ВАЖНО: Сначала загружаем menu.js, потом order.js -->
+    <script src="js/menu.js"></script> 
+    <script src="js/order.js"></script>
+</body>
+</html>
